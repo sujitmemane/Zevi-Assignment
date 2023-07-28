@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import './searchbar.css';
+import {ImCross } from 'react-icons/im'
+
 
 interface SearchBarProps {
   onFocusChange: (value: boolean) => void;
+  suggestionBox : boolean
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onFocusChange }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onFocusChange,suggestionBox }) => {
   const [searchString, setSearchString] = useState<string>('');
  
 
   const handleFocus = () => {
+    onFocusChange(!suggestionBox); 
+  };
+
   
-    onFocusChange(true); 
-  };
-
-  const handleBlur = () => {
-
-    onFocusChange(false); 
-  };
 
   return (
     <div className='search-container'>
@@ -26,11 +24,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onFocusChange }) => {
         type="text"
         value={searchString}
         onChange={(e) => setSearchString(e.target.value)}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
+       
       />
       <button>
-        <FiSearch size={30} />
+     { suggestionBox ? <ImCross size={30} onClick = {handleFocus}  /> :   <FiSearch size={30} onClick = {handleFocus} />}
       </button>
     </div>
   );

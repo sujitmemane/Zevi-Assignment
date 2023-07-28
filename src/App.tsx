@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+
 import './App.css';
-import SearchBar from './components/SearchBar/SearchBar';
-import SuggestionBox from './components/SuggestionBox/SuggestionBox';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import ProductPage from './pages/ProductPage';
+
 
 function App() {
-  const [showSuggestionBox, setShowSuggestionBox] = useState<boolean>(false);
-
-  const setFocusHandler = (value: boolean) => {
-    setShowSuggestionBox(value);
-  };
-
+  
   return (
+    <BrowserRouter>
     <div className="App">
-      <h1 className='logo-heading'>Zevi</h1>
-      <SearchBar onFocusChange={setFocusHandler} />
-      {showSuggestionBox && <SuggestionBox />}
+     <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/products' element={<ProductPage/>}/>
+     </Routes>
     </div>
+    </BrowserRouter>
+    
   );
 }
 

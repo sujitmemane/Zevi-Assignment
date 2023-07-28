@@ -1,4 +1,4 @@
-import SearchBar from "./SearchBar/SearchBar";
-import SuggestionBox from "./SuggestionBox/SuggestionBox";
+import SearchBar from '../components/home/SearchBar'
+import SuggestionBox from '../components/home/SuggestionBox'
 
-export {SearchBar,SuggestionBox}
+export { SearchBar, SuggestionBox }
