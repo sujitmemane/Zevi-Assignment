@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Filter from "./Filter";
 
 const brandOptions = [
   { label: "Mango", name: "mango", id: "mango" },
-  { label: "H & M", name: "h&m", id: "h&m" },
+  { label: "H & M", name: "hm", id: "hm" },
 ];
 
 const priceRangeOptions = [
@@ -42,6 +42,10 @@ const Filters: React.FC<FiltersProps> = ({ getFilters }) => {
       [name]: isChecked,
     }));
   };
+
+  useEffect(() => {
+    getFilters(selectedFilters);
+  }, [selectedFilters]);
 
   console.log(selectedFilters);
 
