@@ -16,10 +16,10 @@ interface selectedFiltersInterface {
 }
 
 const ProductCollection = () => {
-  const [productCollection, setProductCollection] = useState<Product[]>();
+  const [productCollection, setProductCollection] = useState<Product[]>([]);
   const [selectedFilters, setSelectedFilters] =
     useState<selectedFiltersInterface>({});
-
+  const [filteredCollection, setFilteredCollection] = useState<Product[]>([]);
   const numberOfProduct = 10;
   const generateProduct = (count: number): Product[] => {
     const products: Product[] = [];
@@ -62,39 +62,28 @@ const ProductCollection = () => {
     }
 
     return products.filter((product) => {
-      if (+product.price <= 500 === filters.und500) {
-        return true;
-      }
-      if (+product.price > 500 === filters.abv500und3000) {
-        return true;
-      }
-      if ((product.brand === "Mango") === filters.mango) {
-        return true;
-      }
-      if ((product.brand === "HM") === filters.hm) {
-        return true;
-      }
-      if ((product.rating === 1) === filters.onestar) {
-        return true;
-      }
-      if ((product.rating === 2) === filters.twostar) {
-        return true;
-      }
-      if ((product.rating === 3) === filters.threestar) {
-        return true;
-      }
-      if ((product.rating === 4) === filters.fourstar) {
-        return true;
-      }
-      if ((product.rating === 5) === filters.star) {
-        return true;
-      }
-
-      return false;
+      return (
+        (+product.price <= 500 || !filters.und500) &&
+        (+product.price > 500 || !filters.abv500und3000) &&
+        (product.brand === "Mango" || !filters.mango) &&
+        (product.brand === "HM" || !filters.hm) &&
+        (product.rating === 1 || !filters.onestar) &&
+        (product.rating === 2 || !filters.twostar) &&
+        (product.rating === 3 || !filters.threestar) &&
+        (product.rating === 4 || !filters.fourstar) &&
+        (product.rating === 5 || !filters.fivestar)
+      );
     });
   };
+  useEffect(() => {
+    const generatedProduct = generateProduct(numberOfProduct);
+    setProductCollection(generatedProduct);
+  }, []);
 
-  const filteredProducts = applyFilters(productCollection, selectedFilters);
+  useEffect(() => {
+    const filteredProducts = applyFilters(productCollection, selectedFilters);
+    setFilteredCollection(filteredProducts);
+  }, [selectedFilters, productCollection]);
 
   return (
     <div className="flex flex-row ">
@@ -102,11 +91,15 @@ const ProductCollection = () => {
         <Filters getFilters={getFilterHandler} />
       </div>
 
-      <div className="grid grid-cols-4 md:w-[80%]">
-        {filteredProducts?.map((product) => (
-          <ProductElement key={product.id} product={product} />
-        ))}
-      </div>
+      {filteredCollection.length === 0 ? (
+        <h1>No Result Found</h1>
+      ) : (
+        <div className="grid grid-cols-4 md:w-[80%]">
+          {filteredCollection?.map((product) => (
+            <ProductElement key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
