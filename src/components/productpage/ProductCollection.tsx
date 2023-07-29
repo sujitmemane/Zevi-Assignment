@@ -86,15 +86,15 @@ const ProductCollection = () => {
   }, [selectedFilters, productCollection]);
 
   return (
-    <div className="flex flex-row ">
-      <div className="md:w-[20%]">
+    <div className="flex flex-row p-4 ">
+      <div className="md:w-[15%]">
         <Filters getFilters={getFilterHandler} />
       </div>
 
       {filteredCollection.length === 0 ? (
         <h1>No Result Found</h1>
       ) : (
-        <div className="grid grid-cols-4 md:w-[80%]">
+        <div className="grid grid-cols-4 gap-4 md:w-[85%]">
           {filteredCollection?.map((product) => (
             <ProductElement key={product.id} product={product} />
           ))}
