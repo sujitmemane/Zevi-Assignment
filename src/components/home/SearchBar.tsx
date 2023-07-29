@@ -29,8 +29,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <div>
-      <div className="mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-32">
-        <form className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-2">
+      <div className="mx-auto pt-24 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-32 px-8">
+        <form className="flex flex-col items-center sm:flex-row md:items-start sm:items-center justify-center space-y-4 sm:space-y-0 sm:space-x-2">
           <input
             type="text"
             value={searchString}
