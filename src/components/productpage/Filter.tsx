@@ -37,7 +37,7 @@ const Filter: React.FC<FilterProps> = ({
   return (
     <div className="my-4">
       <div
-        className="flex flex-row items-center justify-between"
+        className="flex flex-row items-center justify-between cursor-pointer bg-black text-white px-3 py-3 rounded"
         onClick={toggleFilter}
       >
         <h1 className="text-xl">{title}</h1>
@@ -50,15 +50,21 @@ const Filter: React.FC<FilterProps> = ({
       {isOpen && (
         <div>
           {options.map((option) => (
-            <div key={option.id}>
+            <div
+              key={option.id}
+              className="bg-[#ebf2fa] rounded  cursor-pointer flex space-x-2 px-3 py-2 my-1"
+            >
               <input
                 type="checkbox"
                 name={option.name}
                 id={option.id}
                 checked={selectedFilters[option.name] || false}
                 onChange={handleOptionChange}
+                className="cursor-pointer"
               />
-              <label htmlFor={option.id}>{option.label}</label>
+              <label htmlFor={option.id} className="cursor-pointer">
+                {option.label}
+              </label>
             </div>
           ))}
         </div>
