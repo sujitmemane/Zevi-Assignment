@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { faker } from "@faker-js/faker";
 import ProductElement from "./ProductElement";
 import Filters from "./Filters";
+import NoResult from "../../assets/nodata.avif";
 
 interface Product {
   id: number;
@@ -93,7 +94,7 @@ const ProductCollection = () => {
 
       <div className="md:w-5/6">
         {filteredCollection.length === 0 ? (
-          <h1>No Result Found</h1>
+          <img src={NoResult} alt="" className="w-full h-[100vh]" />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto max-w-7xl">
             {filteredCollection?.map((product) => (
