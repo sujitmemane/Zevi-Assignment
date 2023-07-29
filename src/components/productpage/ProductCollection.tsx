@@ -20,7 +20,7 @@ const ProductCollection = () => {
   const [selectedFilters, setSelectedFilters] =
     useState<selectedFiltersInterface>({});
   const [filteredCollection, setFilteredCollection] = useState<Product[]>([]);
-  const numberOfProduct = 10;
+  const numberOfProduct = 12;
   const generateProduct = (count: number): Product[] => {
     const products: Product[] = [];
     for (let i = 0; i < count; i++) {
