@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCollection from "../components/productpage/ProductCollection";
 import { Link } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { faker } from "@faker-js/faker";
 import ProductElement from "./ProductElement";
 import Filters from "./Filters";
