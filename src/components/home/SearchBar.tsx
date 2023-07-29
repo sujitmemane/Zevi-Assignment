@@ -17,26 +17,31 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const handleFocus = (event: any) => {
     event.preventDefault();
-    if (searchString.length === 0) {
+    if (searchString.length === 0 && !suggestionBox) {
       toast.error("Please Input");
+      return;
     }
-    if (searchString.length !== 0) {
-      onFocusChange(!suggestionBox);
-    }
+
+    onFocusChange(!suggestionBox);
+
+    setSearchString("");
   };
 
   return (
     <div>
-      <div className="mx-auto pt-24 ">
-        <form className="flex flex-row items-center justify-center  space-x-2">
+      <div className="mx-auto pt-8 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-32">
+        <form className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-2">
           <input
             type="text"
             value={searchString}
             placeholder="Search"
             onChange={(e) => setSearchString(e.target.value)}
-            className="px-20 rounded  py-3 outline-none"
+            className="w-full sm:w-auto px-6 py-3 rounded outline-none text-lg"
           />
-          <button className="px-3 py-4 ">
+          <button
+            type="button"
+            className="px-4 py-3 sm:py-3 bg-blue-500 rounded"
+          >
             {suggestionBox ? (
               <ImCross size={20} onClick={handleFocus} color="white" />
             ) : (
