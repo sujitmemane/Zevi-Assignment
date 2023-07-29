@@ -4,7 +4,7 @@ This repository contains the code for the frontend assignment provided by Zevi. 
 
 ##  Live 
 [Demo of Assignment](https://searchappzevi.netlify.app/)
-
+[Demo Video](https://youtu.be/O6QgDNx4V9k)
 
 
 ## Feedback and Issues
