@@ -109,19 +109,20 @@ const ProductCollection = () => {
           <input
             type="text"
             placeholder="Search"
-            className="w-full sm:w-auto px-6 py-3 rounded outline-none text-lg"
+            className="w-full sm:w-auto px-4 py-2 rounded outline-none text-lg"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
 
           <button
             type="button"
-            className="px-4 py-3 sm:py-3 bg-blue-500 rounded"
+            className="px-4 py-2 sm:py-2 bg-blue-500 rounded text-white hidden md:block"
           >
-            <FiSearch size={30} color="white" />
+            <FiSearch size={20} />
           </button>
         </form>
       </div>
+
       <div className="flex flex-col md:flex-row p-4">
         <div className="md:w-1/6">
           <Filters getFilters={getFilterHandler} />
