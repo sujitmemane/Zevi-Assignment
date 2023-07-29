@@ -27,6 +27,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
     setSearchString("");
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleFocus(event);
+    }
+  };
   return (
     <div>
       <div className="mx-auto pt-24 sm:pt-12 md:pt-16 lg:pt-24 xl:pt-32 px-8">
@@ -34,6 +39,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <input
             type="text"
             value={searchString}
+            onKeyDown={handleKeyDown}
             placeholder="Search"
             onChange={(e) => setSearchString(e.target.value)}
             className="w-full sm:w-auto px-6 py-3 rounded outline-none text-lg"
@@ -41,11 +47,12 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <button
             type="button"
             className="px-4 py-3 sm:py-3 bg-blue-500 rounded"
+            onClick={handleFocus}
           >
             {suggestionBox ? (
-              <ImCross size={20} onClick={handleFocus} color="white" />
+              <ImCross size={20} color="white" />
             ) : (
-              <FiSearch size={30} onClick={handleFocus} color="white" />
+              <FiSearch size={30} color="white" />
             )}
           </button>
         </form>
