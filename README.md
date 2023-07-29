@@ -1,27 +1,16 @@
-# React + TypeScript + Vite
+# Zevi Frontend Assignment: React,Typescript, Tailwind CSS, and React Router
+This repository contains the code for the frontend assignment provided by Zevi. The assignment involves building a web application using React,Typescript,  Tailwind CSS, and React Router.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+##  Live 
+[Demo of Assignment](https://searchappzevi.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Feedback and Issues
+If you encounter any issues while setting up or running the project, or if you have any feedback or suggestions, please create an issue on the GitHub repository. I welcome contributions and appreciate your feedback!
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Credits
+This project is created by Sujit Memane. Special thanks to Zevi for providing the assignment.
