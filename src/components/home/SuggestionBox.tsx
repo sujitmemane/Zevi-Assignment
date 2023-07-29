@@ -83,9 +83,9 @@ const SuggestionBox = () => {
       <div className="my-4">
         <h1 className="text-2xl ">Popular Suggestions</h1>
         {productSuggestions?.map((productName) => (
-          <h1 key={productName.id} className="text-md ">
+          <Link to="/products" key={productName.id} className="text-md block ">
             {productName.name}
-          </h1>
+          </Link>
         ))}
       </div>
     </div>

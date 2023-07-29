@@ -109,7 +109,7 @@ const ProductCollection = () => {
           <input
             type="text"
             placeholder="Search"
-            className="w-full sm:w-auto px-4 py-2 rounded outline-none text-lg"
+            className="w-full sm:w-auto px-4 py-2 rounded outline-none border-black  text-lg"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
