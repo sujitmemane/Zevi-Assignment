@@ -45,6 +45,7 @@ const ProductElement: React.FC<ProductElementProps> = ({ product }) => {
               alt=""
               className="w-12 h-12 cursor-pointer absolute top-2 right-2"
               onClick={() => setWishlist(!wishlist)}
+              loading="lazy"
             />
           )}
         </div>
