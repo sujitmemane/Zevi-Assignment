@@ -27,25 +27,34 @@ const ProductElement: React.FC<ProductElementProps> = ({ product }) => {
 
   return (
     <div className=" bg-[#ebf2fa] rounded ">
-      <div
-        className="relative w-full h-64"
-        style={{ backgroundImage: `url(${product.image})`, opacity: 80 }}
-      >
-        {wishlist ? (
-          <img
-            src={HeartOn}
-            alt=""
-            className="w-12 h-12 cursor-pointer absolute top-2 right-2 text-white"
-            onClick={() => setWishlist(!wishlist)}
-          />
-        ) : (
-          <img
-            src={HeartOff}
-            alt=""
-            className="w-12 h-12 cursor-pointer absolute top-2 right-2"
-            onClick={() => setWishlist(!wishlist)}
-          />
-        )}
+      <div className="relative w-full h-64">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-80"
+          style={{ backgroundImage: `url(${product.image})` }}
+        >
+          {wishlist ? (
+            <img
+              src={HeartOn}
+              alt=""
+              className="w-12 h-12 cursor-pointer absolute top-2 right-2 text-white"
+              onClick={() => setWishlist(!wishlist)}
+            />
+          ) : (
+            <img
+              src={HeartOff}
+              alt=""
+              className="w-12 h-12 cursor-pointer absolute top-2 right-2"
+              onClick={() => setWishlist(!wishlist)}
+            />
+          )}
+        </div>
+
+        <button
+          className="absolute w-full py-4 text-white bg-blue-500 text-white font-semibold  absolute bottom-0 left-0 opacity-0 transition-opacity duration-300 hover:opacity-100"
+          onClick={() => console.log("View Product clicked")}
+        >
+          View Product
+        </button>
       </div>
       <div className="p-3">
         <h1 className="text-xl">{product.name}</h1>

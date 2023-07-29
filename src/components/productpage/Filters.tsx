@@ -51,6 +51,7 @@ const Filters: React.FC<FiltersProps> = ({ getFilters }) => {
 
   return (
     <div>
+      <h1 className="text-2xl">Search Results</h1>
       <Filter
         title="Brand"
         options={brandOptions}

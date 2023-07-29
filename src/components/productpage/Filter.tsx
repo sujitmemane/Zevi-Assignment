@@ -1,4 +1,7 @@
-import { AiOutlineArrowDown } from "react-icons/ai";
+import {
+  BsFillArrowDownCircleFill,
+  BsFillArrowUpCircleFill,
+} from "react-icons/bs";
 import { useState } from "react";
 
 interface FilterOption {
@@ -32,10 +35,17 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   return (
-    <div>
-      <div onClick={toggleFilter}>
-        <h1>{title}</h1>
-        <AiOutlineArrowDown size={30} />
+    <div className="my-4">
+      <div
+        className="flex flex-row items-center justify-between"
+        onClick={toggleFilter}
+      >
+        <h1 className="text-xl">{title}</h1>
+        {isOpen ? (
+          <BsFillArrowUpCircleFill size={25} />
+        ) : (
+          <BsFillArrowDownCircleFill size={25} />
+        )}
       </div>
       {isOpen && (
         <div>
