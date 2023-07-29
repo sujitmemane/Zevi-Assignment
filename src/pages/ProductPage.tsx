@@ -1,12 +1,13 @@
-import React from 'react'
-import ProductCollection from '../components/productpage/ProductCollection'
+import React from "react";
+import ProductCollection from "../components/productpage/ProductCollection";
 
 const ProductPage = () => {
   return (
-    <div>ProductPage
-        <ProductCollection/>
+    <div className="bg-white">
+      ProductPage
+      <ProductCollection />
     </div>
-  )
-}
+  );
+};
 
-export default ProductPage
+export default ProductPage;

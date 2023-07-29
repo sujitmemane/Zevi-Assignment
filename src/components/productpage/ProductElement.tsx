@@ -20,34 +20,40 @@ const ProductElement: React.FC<ProductElementProps> = ({ product }) => {
   const renderStars = () => {
     const stars = [];
     for (let i = 0; i < product.rating; i++) {
-      stars.push(<AiFillStar key={i} size={30} />);
+      stars.push(<AiFillStar key={i} color="#ffc300" size={30} />);
     }
     return stars;
   };
 
   return (
-    <div className="p-4 bg-white ">
-      <div className="relative">
-        <img src={product.image} alt={product.name} className="w-56 h-48" />
+    <div className=" bg-[#ebf2fa] rounded ">
+      <div
+        className="relative w-full h-64"
+        style={{ backgroundImage: `url(${product.image})`, opacity: 80 }}
+      >
         {wishlist ? (
           <img
             src={HeartOn}
             alt=""
-            className="w-12 h-12 cursor-pointer"
+            className="w-12 h-12 cursor-pointer absolute top-2 right-2 text-white"
             onClick={() => setWishlist(!wishlist)}
           />
         ) : (
           <img
             src={HeartOff}
             alt=""
-            className="w-12 h-12 cursor-pointer"
+            className="w-12 h-12 cursor-pointer absolute top-2 right-2"
             onClick={() => setWishlist(!wishlist)}
           />
         )}
       </div>
-      <h1>{product.name}</h1>
-      <h3>{product.price}</h3>
-      <div className="flex space-x-2">{renderStars()}</div>
+      <div className="p-3">
+        <h1 className="text-xl">{product.name}</h1>
+        <h3 className="text-md text-[#4361ee]">Rs. {product.price}</h3>
+        <div className="flex space-x-2 items-center">
+          {renderStars()} (210){" "}
+        </div>
+      </div>
     </div>
   );
 };
